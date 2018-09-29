@@ -5,11 +5,12 @@
     <div class="row">
       <div class="col-12 mb-5">
         <a routerLink="/cadastro" class="btn btn-primary">Nova Foto</a>
+        <input (input)="true" #inputBusca type="search" class="form-control" name="" id="">
       </div>
     </div>
 
     <div class="row">
-      <caelumpic-painel *ngFor="let item of listaFotos" [foto]="item" class="col-md-4">
+      <caelumpic-painel *ngFor="let item of listaFotos | filtroPorTitulo: inputBusca.value" [foto]="item" class="col-md-4">
         <a [routerLink]="['/busca',item._id]" class="foto">
           <foto [url]='item.url' [titulo]='item.titulo' [tooltip]='item.titulo'></foto>
         </a>

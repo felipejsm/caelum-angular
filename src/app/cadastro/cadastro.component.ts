@@ -42,7 +42,7 @@ export class CadastroComponent implements OnInit {
   public salvar() {
     this.foto = {...this.foto, ...this.formCadastro.value};
     console.table(this.foto);
-    /*
+
     console.table(this.foto);
     if (this.foto._id) {
       this.atualizar();
@@ -58,7 +58,7 @@ export class CadastroComponent implements OnInit {
     this.fotoService.atualizar(this.foto).subscribe((resposta) => {
       console.log(resposta);
       this.roteador.navigate(['']);
-    });*/
+    });
   }
 
 }
