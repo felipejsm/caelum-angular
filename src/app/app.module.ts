@@ -8,12 +8,14 @@ import { PainelComponent } from './painel/painel.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MensagemComponent } from './mensagem/mensagem.component';
 @NgModule({
   declarations: [
     AppComponent,
     PainelComponent,
     ListagemComponent,
-    CadastroComponent
+    CadastroComponent,
+    MensagemComponent
   ],
   imports: [
     BrowserModule,

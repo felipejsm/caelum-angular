@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Foto } from '../foto/foto';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FotoService } from './../services/foto.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'caelumpic-cadastro',
   templateUrl: './cadastro.component.html',
@@ -19,9 +19,9 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
     this.formCadastro = this.formBuilder.group({
-      titulo: '',
-      url: '',
-      descricao: ''
+      titulo: ['', Validators.required, Validators.minLength(4)],
+      url: ['', Validators.required],
+      descricao: ['']
     });
     let id = this.rotaAtiva.snapshot.params.id;
     if(id) {
