@@ -1,0 +1,10 @@
+<article class="card">
+  <ng-content></ng-content>
+  <div class="card-body">
+    <h6 class="card-title">{{foto.titulo}}</h6>
+      <p class="card-text" *ngIf="foto.descricao">
+        {{foto.descricao}}
+      </p>
+      <ng-content select="button"></ng-content>
+  </div>
+</article>

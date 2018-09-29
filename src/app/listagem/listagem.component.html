@@ -1,0 +1,20 @@
+<header class="jumbotron">
+    <h1 class="text-center">{{title}}</h1>
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col-12 mb-5">
+        <a routerLink="/cadastro" class="btn btn-primary">Nova Foto</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <caelumpic-painel *ngFor="let item of listaFotos" [foto]="item" class="col-md-4">
+        <a [routerLink]="['/busca',item._id]" class="foto">
+          <foto [url]='item.url' [titulo]='item.titulo' [tooltip]='item.titulo'></foto>
+        </a>
+        <button class="btn btn-danger btn-block" (click)="apagar(item)">Apagar</button>
+      </caelumpic-painel>
+    </div>
+    <!-- o equivalente ao new no angular, é a chamada da tag -->
+  </main>
