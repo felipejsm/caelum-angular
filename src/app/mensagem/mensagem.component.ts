@@ -13,7 +13,7 @@ export class MensagemComponent implements OnInit {
   @Input()
   tipo = 'primary';
   @Input()
-  text = '';
+  texto = '';
   constructor() { }
 
   ngOnInit() {

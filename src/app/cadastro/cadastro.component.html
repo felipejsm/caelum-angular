@@ -7,12 +7,24 @@
   <div class="row">
     <form class="col-md-7" [formGroup]="formCadastro" (ngSubmit)="salvar()">
       <div class="form-group">
-        <label for="">Titulo</label>
-        <input type="text" class="form-control" name="titulo" formControlName="titulo" required >
+          <label for="">Titulo</label>
+          <input type="text" class="form-control" name="titulo" formControlName="titulo" required >
+        <!--  {{formCadastro.controls['titulo'].invalid}}
+          {{formCadastro.controls['titulo'].errors?.required}}
+          {{formCadastro.controls['titulo'].errors?.minLength | json}}
+        -->
+        <div *ngIf="formCadastro.controls['titulo'].touched">
+          <caelumpic-mensagem *ngIf="formCadastro.controls['titulo'].errors?.required"
+          tipo="danger" texto="Titulo é obrigatório"></caelumpic-mensagem>
+
+          <caelumpic-mensagem *ngIf="formCadastro.controls['titulo'].errors?.minlength" tipo="danger"
+           texto="Mínimo de {{formCadastro.controls['titulo'].errors?.minlength?.requiredLength}} caracteres"></caelumpic-mensagem>
+        </div>
       </div>
       <div class="form-group">
         <label for="">Url</label>
         <input type="text" class="form-control" name="url" formControlName="url" required >
+        <caelumpic-mensagem tipo="danger" *ngIf="formCadastro.controls['url'].touched && formCadastro.controls['url'].invalid" texto="URL é obrigatório"></caelumpic-mensagem>
       </div>
 
       <div class="form-group">

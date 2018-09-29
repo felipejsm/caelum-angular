@@ -19,15 +19,18 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
     this.formCadastro = this.formBuilder.group({
-      titulo: ['', Validators.required, Validators.minLength(4)],
+      titulo: ['', [Validators.required, Validators.minLength(4)]],
       url: ['', Validators.required],
       descricao: ['']
     });
     let id = this.rotaAtiva.snapshot.params.id;
     if(id) {
-      this.fotoService.buscar( id ).subscribe( pic => this.foto = pic );
+      this.fotoService.buscar( id ).subscribe( pic =>
+        {
+          this.foto = pic;
+          this.formCadastro.patchValue(pic);
+        } );
     }
-
     /*this.rotaAtiva.params.subscribe(paramsRota => {
       console.log(paramsRota.id);
     });*/
@@ -37,6 +40,9 @@ export class CadastroComponent implements OnInit {
    * salvar
    */
   public salvar() {
+    this.foto = {...this.foto, ...this.formCadastro.value};
+    console.table(this.foto);
+    /*
     console.table(this.foto);
     if (this.foto._id) {
       this.atualizar();
@@ -52,7 +58,7 @@ export class CadastroComponent implements OnInit {
     this.fotoService.atualizar(this.foto).subscribe((resposta) => {
       console.log(resposta);
       this.roteador.navigate(['']);
-    });
+    });*/
   }
 
 }
