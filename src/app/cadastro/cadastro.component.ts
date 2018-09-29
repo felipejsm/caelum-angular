@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Foto } from '../foto/foto';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FotoService } from './../services/foto.service';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'caelumpic-cadastro',
   templateUrl: './cadastro.component.html',
@@ -10,6 +11,7 @@ import { FotoService } from './../services/foto.service';
 export class CadastroComponent implements OnInit {
 
   foto: Foto = new Foto();
+  formCadastro: FormGroup;
   constructor(private fotoService: FotoService, private roteador: Router, private rotaAtiva: ActivatedRoute) {}
 
   ngOnInit() {

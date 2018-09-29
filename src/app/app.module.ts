@@ -7,13 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { PainelComponent } from './painel/painel.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     PainelComponent,
     ListagemComponent,
-    CadastroComponent
+    CadastroComponent,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
 </header>
 <main class="container">
   <div class="row">
-    <form class="col-md-7" [formGroup]="formCadastro" (ngSubmit)="salvar()">
+    <form class="col-md-7" (ngSubmit)="salvar()">
       <div class="form-group">
         <label for="">Titulo</label>
         <input type="text" class="form-control" name="titulo" required [(ngModel)]="foto.titulo">
