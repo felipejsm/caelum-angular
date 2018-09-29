@@ -13,15 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     PainelComponent,
     ListagemComponent,
-    CadastroComponent,
-    ReactiveFormsModule
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FotoModule,
     ModuloRoteamento,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
